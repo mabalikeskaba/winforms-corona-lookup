@@ -1,6 +1,6 @@
 ﻿namespace CoronaLookup.ViewModel
 {
-  public class CaseDetailViewModel
+  public class CaseDetailContainerViewModel
   {
     public string CountryName { get; set; }
     public int TotalCases { get; set; }

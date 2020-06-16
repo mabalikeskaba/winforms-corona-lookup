@@ -49,6 +49,12 @@
     <Compile Include="Controls\CaseContainerView.Designer.cs">
       <DependentUpon>CaseContainerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CaseDetailContainerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CaseDetailContainerView.Designer.cs">
+      <DependentUpon>CaseDetailContainerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CaseDetailView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -62,6 +68,11 @@
       <DependentUpon>CountryLookupView.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,8 +82,21 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CaseDetailContainerView.resx">
+      <DependentUpon>CaseDetailContainerView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CaseDetailView.resx">
       <DependentUpon>CaseDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CountryLookupView.resx">
+      <DependentUpon>CountryLookupView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
