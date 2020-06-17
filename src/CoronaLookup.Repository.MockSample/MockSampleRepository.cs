@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CoronaLookup.Repository.MockSample
 {
@@ -14,12 +15,12 @@ namespace CoronaLookup.Repository.MockSample
       new Country("Italy")
     };
 
-    public IEnumerable<Country> FetchCountries()
+    public IEnumerable<Country> GetCountries()
     {
       return Countries;
     }
 
-    public CountryCaseInfo FetchCaseInfoByCountry(Country country)
+    public async Task<CountryCaseInfo> GetCaseInfoByCountry(Country country)
     {
       var ctry = Countries.FirstOrDefault(x => x.Name == country.Name);
       var rnd = new Random();
@@ -32,7 +33,7 @@ namespace CoronaLookup.Repository.MockSample
         return new CountryCaseInfo()
         {
           Country = ctry, TotalCases = totalCases, TotalDeaths = totalDeaths, TotalRecovered = totalRecoveries,
-          Date = fetchDate
+          Date = fetchDate.ToString()
         };
       }
 

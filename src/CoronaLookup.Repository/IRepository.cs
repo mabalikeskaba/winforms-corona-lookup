@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CoronaLookup.Repository
 {
   public interface IRepository
   {
-    IEnumerable<Country> FetchCountries();
-    CountryCaseInfo FetchCaseInfoByCountry(Country country);
+    IEnumerable<Country> GetCountries();
+    Task<CountryCaseInfo> GetCaseInfoByCountry(Country country);
   }
 }

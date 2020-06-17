@@ -9,7 +9,7 @@ namespace CoronaLookup.Repository
     public int TotalCases { get; set; }
     public int TotalDeaths { get; set; }
     public int TotalRecovered { get; set; }
-    public DateTime Date { get; set; }
+    public string Date { get; set; }
 
     public override bool Equals(object obj)
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CoronaLookup.Repository;
 
@@ -16,7 +17,7 @@ namespace CoronaLookup.Model
 
     public IEnumerable<Country> GetCountries()
     {
-      return mCurrentRepository?.FetchCountries();
+      return mCurrentRepository?.GetCountries();
     }
 
     public void SetRepository(string repositoryName)
@@ -30,7 +31,16 @@ namespace CoronaLookup.Model
 
     public CountryCaseInfo GetCaseInfoByCountry(Country country)
     {
-      return mCurrentRepository.FetchCaseInfoByCountry(country);
+      try
+      {
+        return mCurrentRepository.GetCaseInfoByCountry(country).Result;
+      }
+      catch(Exception ex)
+      {
+        // Some countries may cause a timeout
+        Console.WriteLine(ex);
+        return null;
+      }
     }
   }
 }

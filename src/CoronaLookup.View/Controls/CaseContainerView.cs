@@ -24,8 +24,11 @@ namespace CoronaLookup.View.Controls
       Controls.Clear();
       foreach (var countryCaseInfo in mViewModel.CountryCaseInfos)
       {
-        var view = new CaseDetailContainerView(countryCaseInfo) {Dock = DockStyle.Top};
-        Controls.Add(view);
+        if (countryCaseInfo != null)
+        {
+          var view = new CaseDetailContainerView(countryCaseInfo) { Dock = DockStyle.Top };
+          Controls.Add(view);
+        }
       }
     }
   }

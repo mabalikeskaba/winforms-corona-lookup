@@ -17,7 +17,7 @@ namespace CoronaLookup.View.Controls
       mTotalCasesLabel.DetailContent = info.TotalCases.ToString();
       mTotalDeathsLabel.DetailContent = info.TotalDeaths.ToString();
       mTotalRecoveriesLabel.DetailContent = info.TotalRecovered.ToString();
-      mDateLabel.DetailContent = info.Date.ToLongDateString();
+      mDateLabel.DetailContent = info.Date;
     }
   }
 }

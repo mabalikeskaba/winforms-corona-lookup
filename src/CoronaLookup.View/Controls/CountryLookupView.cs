@@ -42,7 +42,7 @@ namespace CoronaLookup.View.Controls
     {
       if (mRadButtonApi.Checked)
       {
-        mViewModel.SetRepository("MockSampleRepository");
+        mViewModel.SetRepository("Covid19ApiRepository");
       }
       else
       {
