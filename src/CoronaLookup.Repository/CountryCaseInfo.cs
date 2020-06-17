@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CoronaLookup.Repository
 {
@@ -18,6 +19,11 @@ namespace CoronaLookup.Repository
       }
 
       return false;
+    }
+
+    public override int GetHashCode()
+    {
+      return 1950172441 + EqualityComparer<Country>.Default.GetHashCode(Country);
     }
   }
 }

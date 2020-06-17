@@ -72,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CoronaLookup.Controller\CoronaLookup.Controller.csproj">
-      <Project>{75E073C9-9143-4320-B167-F25F3E39FB6A}</Project>
+      <Project>{F90853C0-6C50-40A1-9AD2-A57FB08381B0}</Project>
       <Name>CoronaLookup.Controller</Name>
     </ProjectReference>
     <ProjectReference Include="..\CoronaLookup.View\CoronaLookup.View.csproj">

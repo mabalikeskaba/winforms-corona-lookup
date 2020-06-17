@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CoronaLookup.Controller;
+using System;
 using System.Windows.Forms;
-using CoronaLookup.Controller;
 
 namespace CoronaLookup.Main
 {
