@@ -22,17 +22,6 @@ namespace CoronaLookup.View.Controls
       OnApiRadButtonCheckedChanged(this, null);
     }
 
-    protected override void OnLoad(EventArgs e)
-    {
-      base.OnLoad(e);
-      var countries = mViewModel.GetCountries().ToArray();
-      if (countries.Any())
-      {
-        mCountrySelection.Items.AddRange(countries);
-        mCountrySelection.SelectedIndex = 0;
-      }
-    }
-
     private void OnFileSystemRadButtonCheckedChanged(object sender, EventArgs e)
     {
       mOpenCsvButton.Enabled = mRadButtonFileSystem.Checked;
@@ -47,6 +36,20 @@ namespace CoronaLookup.View.Controls
       else
       {
         mViewModel.SetRepository("MockSampleRepository");
+      }
+
+      LoadCountries();
+    }
+
+    private void LoadCountries()
+    {
+      mCountrySelection.Items.Clear();
+
+      var countries = mViewModel.GetCountries().ToArray();
+      if (countries.Any())
+      {
+        mCountrySelection.Items.AddRange(countries);
+        mCountrySelection.SelectedIndex = 0;
       }
     }
 
