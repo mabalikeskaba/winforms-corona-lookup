@@ -1,18 +1,32 @@
 ﻿using System.Windows.Forms;
+using CoronaLookup.ViewModel.Controls;
 
 namespace CoronaLookup.View.Controls
 {
   public partial class CaseContainerView : UserControl
   {
+    private readonly CaseContainerViewModel mViewModel;
+
     public CaseContainerView()
     {
       InitializeComponent();
-      var ashdio = new CaseDetailContainerView();
-      var qdio = new CaseDetailContainerView();
-      ashdio.Dock = DockStyle.Top;
-      qdio.Dock = DockStyle.Top;
-      Controls.Add(ashdio);
-      Controls.Add(qdio);
+    }
+
+    public CaseContainerView(CaseContainerViewModel viewModel)
+    {
+      InitializeComponent();
+      mViewModel = viewModel;
+      mViewModel.CountryCaseInfoAdded += ViewModelOnCountryCaseInfoAdded;
+    }
+
+    private void ViewModelOnCountryCaseInfoAdded()
+    {
+      Controls.Clear();
+      foreach (var countryCaseInfo in mViewModel.CountryCaseInfos)
+      {
+        var view = new CaseDetailContainerView(countryCaseInfo) {Dock = DockStyle.Top};
+        Controls.Add(view);
+      }
     }
   }
 }

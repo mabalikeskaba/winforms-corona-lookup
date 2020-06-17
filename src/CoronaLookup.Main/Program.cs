@@ -1,6 +1,6 @@
-﻿using CoronaLookup.View.Windows;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using CoronaLookup.Controller;
 
 namespace CoronaLookup.Main
 {
@@ -14,7 +14,8 @@ namespace CoronaLookup.Main
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new MainWindow());
+      var mainWindowController = new MainWindowController();
+      Application.Run(mainWindowController.MainWindow);
     }
   }
 }

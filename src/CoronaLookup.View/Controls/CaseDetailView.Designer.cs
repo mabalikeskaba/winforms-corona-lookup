@@ -48,9 +48,8 @@
       this.mCaseContentLabel.AutoSize = true;
       this.mCaseContentLabel.Location = new System.Drawing.Point(131, 10);
       this.mCaseContentLabel.Name = "mCaseContentLabel";
-      this.mCaseContentLabel.Size = new System.Drawing.Size(35, 13);
+      this.mCaseContentLabel.Size = new System.Drawing.Size(0, 13);
       this.mCaseContentLabel.TabIndex = 4;
-      this.mCaseContentLabel.Text = "label1";
       // 
       // CaseDetailView
       // 

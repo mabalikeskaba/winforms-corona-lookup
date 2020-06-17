@@ -1,4 +1,4 @@
-﻿namespace CoronaLookup.View
+﻿namespace CoronaLookup.View.Controls
 {
     partial class CaseDetailContainerView
   {

@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CoronaLookup.Model\CoronaLookup.Model.csproj" />
+    <ProjectReference Include="..\CoronaLookup.Repository\CoronaLookup.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

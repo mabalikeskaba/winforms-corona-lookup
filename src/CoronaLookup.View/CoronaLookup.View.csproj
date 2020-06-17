@@ -103,6 +103,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CoronaLookup.Repository.Covid19API\CoronaLookup.Repository.Covid19API.csproj">
+      <Project>{D57BE299-F1DF-4448-BB6A-7072A94A589F}</Project>
+      <Name>CoronaLookup.Repository.Covid19API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoronaLookup.Repository.MockSample\CoronaLookup.Repository.MockSample.csproj">
+      <Project>{8CCB3483-2D05-4793-A1A1-BB49D7F199A1}</Project>
+      <Name>CoronaLookup.Repository.MockSample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoronaLookup.Repository\CoronaLookup.Repository.csproj">
+      <Project>{31DD71BE-406F-4F01-87FC-1E18CDF42DD2}</Project>
+      <Name>CoronaLookup.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CoronaLookup.ViewModel\CoronaLookup.ViewModel.csproj">
       <Project>{D5DAC4F8-0091-4C2C-8D33-D507BC50E142}</Project>
       <Name>CoronaLookup.ViewModel</Name>
