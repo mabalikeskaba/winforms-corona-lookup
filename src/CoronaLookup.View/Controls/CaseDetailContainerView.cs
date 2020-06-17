@@ -7,6 +7,10 @@ namespace CoronaLookup.View
   {
     private CaseDetailContainerViewModel mViewModel;
 
+    public CaseDetailContainerView() : this(null)
+    {
+    }
+
     public CaseDetailContainerView(CaseDetailContainerViewModel viewModel)
     {
       InitializeComponent();

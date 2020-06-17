@@ -10,10 +10,6 @@ namespace CoronaLookup.View.Windows
     public MainWindow()
     {
       InitializeComponent();
-      var caseDetailView = new CaseDetailView(new CaseDetailViewModel
-        {CaseAmount = 500, CaseDetailColor = Color.Aqua, CaseDetailName = "wasd"});
-      caseDetailView.Dock = DockStyle.Top;
-      caseContainerView1.Controls.Add(caseDetailView);
     }
   }
 }
