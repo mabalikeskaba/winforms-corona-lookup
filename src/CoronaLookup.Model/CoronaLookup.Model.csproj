@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CoronaLookup.Repository.CSV\CoronaLookup.Repository.CSV.csproj" />
     <ProjectReference Include="..\CoronaLookup.Repository\CoronaLookup.Repository.csproj" />
   </ItemGroup>
 

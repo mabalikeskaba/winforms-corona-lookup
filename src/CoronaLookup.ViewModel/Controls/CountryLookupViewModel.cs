@@ -35,5 +35,10 @@ namespace CoronaLookup.ViewModel.Controls
     {
       return mModel.GetCountries();
     }
+
+    public void SetCsvPath(string fileName)
+    {
+      mModel.SetCsvPath(fileName);
+    }
   }
 }

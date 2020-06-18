@@ -27,9 +27,9 @@ namespace CoronaLookup.View.Windows
       {
         AutoScroll = true,
         BorderStyle = BorderStyle.FixedSingle,
-        Location = new System.Drawing.Point(11, 137),
+        Location = new System.Drawing.Point(11, 135),
         Name = "caseContainerView",
-        Size = new System.Drawing.Size(415, 361),
+        Size = new System.Drawing.Size(415, 364),
         TabIndex = 1
       };
 

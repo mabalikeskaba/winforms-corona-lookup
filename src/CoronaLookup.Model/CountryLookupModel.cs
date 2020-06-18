@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using CoronaLookup.Repository;
+using CoronaLookup.Repository.CSV;
 
 namespace CoronaLookup.Model
 {
   public class CountryLookupModel
   {
-    private IRepository mCurrentRepository = null;
+    private IRepository mCurrentRepository;
     private readonly IEnumerable<IRepository> mRepositories;
 
     public CountryLookupModel(params IRepository[] repos)
@@ -41,6 +42,12 @@ namespace CoronaLookup.Model
         Console.WriteLine(ex);
         return null;
       }
+    }
+
+    public void SetCsvPath(string fileName)
+    {
+      var repo = mRepositories.OfType<CsvRepository>().FirstOrDefault();
+      repo?.SetCsvPath(fileName);
     }
   }
 }

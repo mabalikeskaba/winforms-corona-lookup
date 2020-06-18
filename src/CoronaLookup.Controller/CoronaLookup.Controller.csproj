@@ -58,6 +58,10 @@
       <Project>{D57BE299-F1DF-4448-BB6A-7072A94A589F}</Project>
       <Name>CoronaLookup.Repository.Covid19API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoronaLookup.Repository.CSV\CoronaLookup.Repository.CSV.csproj">
+      <Project>{308E5AEE-20D9-46C9-81C3-AF79065BA866}</Project>
+      <Name>CoronaLookup.Repository.CSV</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CoronaLookup.Repository.MockSample\CoronaLookup.Repository.MockSample.csproj">
       <Project>{8CCB3483-2D05-4793-A1A1-BB49D7F199A1}</Project>
       <Name>CoronaLookup.Repository.MockSample</Name>

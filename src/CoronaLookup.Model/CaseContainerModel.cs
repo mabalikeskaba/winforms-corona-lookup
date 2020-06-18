@@ -12,16 +12,19 @@ namespace CoronaLookup.Model
       var sb = new StringBuilder();
       foreach (var info in countryCaseInfos)
       {
-        sb.Append(info.Country);
-        sb.Append(";");
-        sb.Append(info.TotalCases);
-        sb.Append(";");
-        sb.Append(info.TotalDeaths);
-        sb.Append(";");
-        sb.Append(info.TotalRecovered);
-        sb.Append(";");
-        sb.Append(info.Date);
-        sb.AppendLine();
+        if (info != null)
+        {
+          sb.Append(info.Country);
+          sb.Append(";");
+          sb.Append(info.TotalCases);
+          sb.Append(";");
+          sb.Append(info.TotalDeaths);
+          sb.Append(";");
+          sb.Append(info.TotalRecovered);
+          sb.Append(";");
+          sb.Append(info.Date);
+          sb.AppendLine();
+        }
       }
       File.WriteAllText(path, sb.ToString());
     }

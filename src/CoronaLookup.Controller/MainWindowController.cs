@@ -1,6 +1,7 @@
 ﻿using CoronaLookup.Model;
 using CoronaLookup.Repository;
 using CoronaLookup.Repository.Covid19API;
+using CoronaLookup.Repository.CSV;
 using CoronaLookup.Repository.MockSample;
 using CoronaLookup.View.Windows;
 using CoronaLookup.ViewModel.Controls;
@@ -17,7 +18,7 @@ namespace CoronaLookup.Controller
 
     public MainWindowController()
     {
-      mCountryLookupModel = new CountryLookupModel(new Covid19ApiRepository(), new MockSampleRepository());
+      mCountryLookupModel = new CountryLookupModel(new Covid19ApiRepository(), new MockSampleRepository(), new CsvRepository());
       var countryLookupViewModel = new CountryLookupViewModel(mCountryLookupModel);
       countryLookupViewModel.CountryAdded += OnCountryAddedToList;
 

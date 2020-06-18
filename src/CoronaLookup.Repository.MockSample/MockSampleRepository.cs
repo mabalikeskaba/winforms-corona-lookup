@@ -8,7 +8,7 @@ namespace CoronaLookup.Repository.MockSample
 {
   public class MockSampleRepository : IRepository
   {
-    private readonly Country[] Countries =
+    private readonly Country[] mCountries =
     {
       new Country("Germany"),
       new Country("USA"),
@@ -18,12 +18,12 @@ namespace CoronaLookup.Repository.MockSample
 
     public IList<Country> GetCountries()
     {
-      return Countries;
+      return mCountries;
     }
 
     public CountryCaseInfo GetCaseInfoByCountry(Country country)
     {
-      var ctry = Countries.FirstOrDefault(x => x.Name == country.Name);
+      var ctry = mCountries.FirstOrDefault(x => x.Name == country.Name);
       var rnd = new Random();
       var fetchDate = DateTime.Now.ToString(CultureInfo.InvariantCulture);
       var totalCases = rnd.Next(1, 200000);

@@ -53,7 +53,7 @@ namespace CoronaLookup.Repository.Covid19API
       var task = mClient.ExecuteAsync<IEnumerable<ApiCountryCaseInfo>>(request, token.Token);
       task.Wait(token.Token);
       var response = await task;
-      var actualCaseInfo = response.Data.LastOrDefault();
+      var actualCaseInfo = response.Data.OrderBy(x => x.Confirmed).LastOrDefault();
 
       return CreateCaseInfo(actualCaseInfo);
     }

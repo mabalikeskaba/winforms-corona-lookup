@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using CoronaLookup.Repository;
 using CoronaLookup.ViewModel.Controls;
 // ReSharper disable CoVariantArrayConversion
+// ReSharper disable LocalizableElement
 
 namespace CoronaLookup.View.Controls
 {
@@ -16,7 +19,8 @@ namespace CoronaLookup.View.Controls
     public CountryLookupView(CountryLookupViewModel viewModel)
     {
       InitializeComponent();
-      mFileSystemText.Text = Environment.CurrentDirectory;
+      mFileSystemText.Text = Path.Combine(Environment.CurrentDirectory, "Covid19Countries_Europe_2020_06_18.csv");
+      mOpenCsvButton.Click += (sender, args) => OpenCsvFileDialog();
 
       mViewModel = viewModel;
       OnApiRadButtonCheckedChanged(this, null);
@@ -32,10 +36,12 @@ namespace CoronaLookup.View.Controls
       if (mRadButtonApi.Checked)
       {
         mViewModel.SetRepository("Covid19ApiRepository");
+        mOpenCsvButton.Enabled = false;
       }
       else
       {
-        mViewModel.SetRepository("MockSampleRepository");
+        mViewModel.SetRepository("CsvRepository");
+        mOpenCsvButton.Enabled = true;
       }
 
       LoadCountries();
@@ -69,6 +75,35 @@ namespace CoronaLookup.View.Controls
     private void mAddButton_Click(object sender, EventArgs e)
     {
       mViewModel.AddCountryToList((Country)mCountrySelection.SelectedItem);
+    }
+
+    // File dialog handling
+
+    private void OpenCsvFileDialog()
+    {
+      var dialog = new OpenFileDialog
+      {
+        DefaultExt = ".csv",
+        InitialDirectory = Path.GetDirectoryName(mFileSystemText.Text),
+        Filter = "CSV file (*.csv)|*.csv"
+      };
+
+      dialog.FileOk += DialogOnFileOk;
+      dialog.ShowDialog();
+    }
+
+    private void DialogOnFileOk(object sender, CancelEventArgs e)
+    {
+      if (sender is OpenFileDialog dialog)
+      {
+        dialog.FileOk -= DialogOnFileOk;
+        if (File.Exists(dialog.FileName))
+        {
+          mViewModel.SetCsvPath(dialog.FileName);
+          mFileSystemText.Text = dialog.FileName;
+          LoadCountries();
+        }
+      }
     }
   }
 }

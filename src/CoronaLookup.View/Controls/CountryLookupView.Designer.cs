@@ -16,6 +16,7 @@
       if (disposing && (components != null))
       {
         components.Dispose();
+        mOpenCsvButton.Click -= (sender, args) => OpenCsvFileDialog();
       }
       base.Dispose(disposing);
     }
