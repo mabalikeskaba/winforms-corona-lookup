@@ -7,14 +7,11 @@ namespace CoronaLookup.View.Windows
 {
   public partial class MainWindow : Form
   {
-    private readonly CountryLookupView mCountryLookupView;
-    private readonly CaseContainerView mCaseContainerView;
-
     public MainWindow() : this(null, null) { }
 
     public MainWindow(CaseContainerViewModel caseContainerViewModel, CountryLookupViewModel countryLookupViewModel)
     {
-      mCountryLookupView = new CountryLookupView(countryLookupViewModel)
+      var countryLookupView = new CountryLookupView(countryLookupViewModel)
       {
         AutoSize = true,
         Location = new System.Drawing.Point(0, 0),
@@ -23,7 +20,7 @@ namespace CoronaLookup.View.Windows
         TabIndex = 0
       };
      
-      mCaseContainerView = new CaseContainerView(caseContainerViewModel)
+      var caseContainerView = new CaseContainerView(caseContainerViewModel)
       {
         AutoScroll = true,
         BorderStyle = BorderStyle.FixedSingle,
@@ -34,6 +31,9 @@ namespace CoronaLookup.View.Windows
       };
 
       InitializeComponent();
+
+      Controls.Add(caseContainerView);
+      Controls.Add(countryLookupView);
     }
 
     protected override void OnLoad(EventArgs e)

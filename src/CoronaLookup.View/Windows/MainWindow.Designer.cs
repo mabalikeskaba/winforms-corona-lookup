@@ -31,20 +31,18 @@
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
       this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
       this.SuspendLayout();
-
       // 
       // MainWindow
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(437, 510);
-      this.Controls.Add(this.mCaseContainerView);
-      this.Controls.Add(this.mCountryLookupView);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+      this.MaximumSize = new System.Drawing.Size(453, 549);
+      this.MinimumSize = new System.Drawing.Size(453, 549);
       this.Name = "MainWindow";
       this.Text = "Covid19 Lookup";
       this.ResumeLayout(false);
-      this.PerformLayout();
 
     }
 
