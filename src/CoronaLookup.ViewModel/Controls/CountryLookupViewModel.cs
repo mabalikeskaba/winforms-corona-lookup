@@ -29,11 +29,6 @@ namespace CoronaLookup.ViewModel.Controls
       }
     }
 
-    public CountryCaseInfo GetCaseInfoByCountry(Country country)
-    {
-      return mModel.GetCaseInfoByCountry(country);
-    }
-
     public IList<Country> GetCountries()
     {
       return mModel.GetCountries();
