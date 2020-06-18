@@ -23,7 +23,10 @@ namespace CoronaLookup.ViewModel.Controls
 
     public void AddCountryToList(Country country)
     {
-      CountryAdded?.Invoke(country);
+      if (country != null)
+      {
+        CountryAdded?.Invoke(country);
+      }
     }
 
     public CountryCaseInfo GetCaseInfoByCountry(Country country)
