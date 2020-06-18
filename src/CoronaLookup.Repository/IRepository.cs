@@ -5,7 +5,8 @@ namespace CoronaLookup.Repository
 {
   public interface IRepository
   {
-    IEnumerable<Country> GetCountries();
-    Task<CountryCaseInfo> GetCaseInfoByCountry(Country country);
+    IList<Country> GetCountries();
+    CountryCaseInfo GetCaseInfoByCountry(Country country);
+    Task<CountryCaseInfo> GetCaseInfoByCountryAsync(Country country);
   }
 }

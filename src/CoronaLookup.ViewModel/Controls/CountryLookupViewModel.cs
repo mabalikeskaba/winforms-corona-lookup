@@ -31,7 +31,7 @@ namespace CoronaLookup.ViewModel.Controls
       return mModel.GetCaseInfoByCountry(country);
     }
 
-    public IEnumerable<Country> GetCountries()
+    public IList<Country> GetCountries()
     {
       return mModel.GetCountries();
     }

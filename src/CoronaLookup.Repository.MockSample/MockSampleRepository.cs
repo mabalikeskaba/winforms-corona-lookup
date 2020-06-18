@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,16 +16,16 @@ namespace CoronaLookup.Repository.MockSample
       new Country("Italy")
     };
 
-    public IEnumerable<Country> GetCountries()
+    public IList<Country> GetCountries()
     {
       return Countries;
     }
 
-    public async Task<CountryCaseInfo> GetCaseInfoByCountry(Country country)
+    public CountryCaseInfo GetCaseInfoByCountry(Country country)
     {
       var ctry = Countries.FirstOrDefault(x => x.Name == country.Name);
       var rnd = new Random();
-      var fetchDate = DateTime.Now;
+      var fetchDate = DateTime.Now.ToString(CultureInfo.InvariantCulture);
       var totalCases = rnd.Next(1, 200000);
       var totalDeaths = rnd.Next(0, totalCases / 2);
       var totalRecoveries = rnd.Next(0, totalCases / 2);
@@ -32,12 +33,22 @@ namespace CoronaLookup.Repository.MockSample
       {
         return new CountryCaseInfo()
         {
-          Country = ctry, TotalCases = totalCases, TotalDeaths = totalDeaths, TotalRecovered = totalRecoveries,
-          Date = fetchDate.ToString()
+          Country = ctry,
+          TotalCases = totalCases,
+          TotalDeaths = totalDeaths,
+          TotalRecovered = totalRecoveries,
+          Date = fetchDate
         };
       }
 
       return null;
+    }
+
+    public async Task<CountryCaseInfo> GetCaseInfoByCountryAsync(Country country)
+    {
+      var task = Task.Factory.StartNew(() => GetCaseInfoByCountry(country));
+      task.Wait();
+      return await task;
     }
   }
 }

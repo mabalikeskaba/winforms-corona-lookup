@@ -45,11 +45,14 @@ namespace CoronaLookup.View.Controls
     {
       mCountrySelection.Items.Clear();
 
-      var countries = mViewModel.GetCountries().ToArray();
-      if (countries.Any())
+      var countries = mViewModel.GetCountries();
+      if (countries != null)
       {
-        mCountrySelection.Items.AddRange(countries);
-        mCountrySelection.SelectedIndex = 0;
+        if (countries.Any())
+        {
+          mCountrySelection.Items.AddRange(countries.ToArray());
+          mCountrySelection.SelectedIndex = 0;
+        }
       }
     }
 

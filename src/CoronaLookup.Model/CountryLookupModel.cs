@@ -15,7 +15,7 @@ namespace CoronaLookup.Model
       mRepositories = repos;
     }
 
-    public IEnumerable<Country> GetCountries()
+    public IList<Country> GetCountries()
     {
       return mCurrentRepository?.GetCountries();
     }
@@ -33,7 +33,7 @@ namespace CoronaLookup.Model
     {
       try
       {
-        return mCurrentRepository.GetCaseInfoByCountry(country).Result;
+        return mCurrentRepository.GetCaseInfoByCountryAsync(country).Result;
       }
       catch(Exception ex)
       {
