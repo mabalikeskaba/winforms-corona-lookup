@@ -6,6 +6,11 @@ namespace CoronaLookup.Repository.CSV
 {
   public class CsvRepository : IRepository
   {
+    public CsvRepository(string pathToCsvFile)
+    {
+
+    }
+
     public IList<Country> GetCountries()
     {
       throw new NotImplementedException();

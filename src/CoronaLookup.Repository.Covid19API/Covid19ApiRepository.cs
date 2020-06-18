@@ -74,24 +74,5 @@ namespace CoronaLookup.Repository.Covid19API
 
       return null;
     }
-
-    //public async Task<CountryCaseInfo> GetCaseInfoByCountryAsync(Country country)
-    //{
-    //  var from = "2020-03-01T00:00:00Z";
-    //  var now = DateTime.Now;
-    //  var to = $"{now.Year}-{now.Month:D2}-{now.Day:D2}T{now.Hour:D2}:{now.Minute:D2}:{now.Second:D2}Z";
-    //  var requestString = $"/country/{country.Name}?from={from}&to={to}";
-    //  var request = new RestRequest(requestString, DataFormat.Json);
-    //  var token = new CancellationTokenSource();
-    //  token.CancelAfter(3000);
-    //  var task = mClient.ExecuteAsync<IEnumerable<ApiCountryCaseInfo>>(request, token.Token);
-    //  task.Wait();
-    //  var response = await task;
-    //  var actualCaseInfo = response.Data.LastOrDefault();
-    //  if (actualCaseInfo != null)
-    //    return new CountryCaseInfo { Country = new Country(actualCaseInfo.Country), Date = actualCaseInfo.Date, TotalCases = actualCaseInfo.Confirmed, TotalDeaths = actualCaseInfo.Deaths, TotalRecovered = actualCaseInfo.Recovered };
-
-    //  return null;
-    //}
   }
 }

@@ -3,7 +3,6 @@ using CoronaLookup.Repository;
 using CoronaLookup.Repository.Covid19API;
 using CoronaLookup.Repository.MockSample;
 using CoronaLookup.View.Windows;
-using CoronaLookup.ViewModel;
 using CoronaLookup.ViewModel.Controls;
 
 namespace CoronaLookup.Controller
@@ -12,23 +11,19 @@ namespace CoronaLookup.Controller
   {
     public MainWindow MainWindow { get; }
 
-    private CountryLookupModel mCountryLookupModel;
+    private readonly CountryLookupModel mCountryLookupModel;
 
-    private readonly CountryLookupViewModel mCountryLookupViewModel;
     private readonly CaseContainerViewModel mCaseContainerViewModel;
-    private readonly CaseDetailContainerViewModel mCaseDetailContainerViewModel;
 
     public MainWindowController()
     {
       mCountryLookupModel = new CountryLookupModel(new Covid19ApiRepository(), new MockSampleRepository());
-      mCountryLookupViewModel = new CountryLookupViewModel(mCountryLookupModel);
-      mCountryLookupViewModel.CountryAdded += OnCountryAddedToList;
+      var countryLookupViewModel = new CountryLookupViewModel(mCountryLookupModel);
+      countryLookupViewModel.CountryAdded += OnCountryAddedToList;
 
-      mCaseDetailContainerViewModel = new CaseDetailContainerViewModel();
-      mCaseContainerViewModel = new CaseContainerViewModel();
+      mCaseContainerViewModel = new CaseContainerViewModel(new CaseContainerModel());
 
-      MainWindow = new MainWindow();
-      MainWindow.Initialize(mCaseContainerViewModel, mCaseDetailContainerViewModel, mCountryLookupViewModel);
+      MainWindow = new MainWindow(mCaseContainerViewModel, countryLookupViewModel);
     }
 
     public void OnCountryAddedToList(Country country)
